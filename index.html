@@ -1,313 +1,654 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Rohit Kumar Das Page</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Rohit Kumar Das — Assistant Professor, IIITDM Kurnool</title>
+<meta name="description" content="Dr. Rohit Kumar Das — Assistant Professor at IIITDM Kurnool. Research in Software-Defined Networking, IoT, Edge AI, and Blockchain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101826;
+    --ink-soft:#4b5468;
+    --paper:#ECEFE9;
+    --paper-deep:#E2E6DC;
+    --white:#FFFFFF;
+    --line:#D5D9CC;
+    --signal:#1F8A8C;
+    --signal-deep:#146567;
+    --amber:#C97B2E;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--signal-deep);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  section{position:relative;}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  /* ---------- Skip link / focus ---------- */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--signal); outline-offset:3px;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100;}
+  .skip-link:focus{left:12px;top:12px;}
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Rohit Kumar Das</h1>
-								<p>Click on the Tab below for more information</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#research">Research</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(236,239,233,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);}
+  .brand .node{width:9px;height:9px;border-radius:50%;background:var(--signal);position:relative;}
+  .brand .node::after{
+    content:"";position:absolute;left:14px;top:3px;width:20px;height:1px;background:var(--ink-soft);opacity:.5;
+  }
+  nav.links{display:flex;gap:26px;font-size:0.92rem;}
+  nav.links a{color:var(--ink-soft);}
+  nav.links a:hover{color:var(--signal-deep);text-decoration:none;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
 
-				<!-- Main -->
-					<div id="main">
+  @media (max-width:760px){
+    nav.links{
+      position:fixed;inset:64px 0 0 0;background:var(--paper);
+      flex-direction:column;padding:28px;gap:20px;
+      transform:translateY(-110%);transition:transform .3s ease;
+      border-top:1px solid var(--line);
+    }
+    nav.links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+  }
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pp.jpg" alt="" /></span>
-								<p>I am currently working as an Assistant Professor at <a href="https://iiitk.ac.in/">IIITDM Kurnool</a> Andhra Pradesh, India</p>
-								<p>I am a Native of Assam and was born in Mizoram. </p>
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 64px;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  }
+  #topo{position:absolute;inset:0;width:100%;height:100%;opacity:.55;}
+  .hero-inner{position:relative;z-index:2;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--signal-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--signal);display:inline-block;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.04;max-width:820px;}
+  .hero .role{
+    font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--ink-soft);margin-top:18px;max-width:640px;font-weight:400;
+  }
+  .hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:.03em;
+    border:1px solid var(--line);background:var(--white);padding:5px 11px;border-radius:100px;color:var(--ink-soft);
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:2px;font-size:0.92rem;font-weight:500;
+    border:1px solid var(--ink);transition:all .18s ease;
+  }
+  .btn:hover{text-decoration:none;}
+  .btn-solid{background:var(--ink);color:var(--white);}
+  .btn-solid:hover{background:var(--signal-deep);border-color:var(--signal-deep);}
+  .btn-outline{background:transparent;color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--white);}
 
-								<p>I completed my Ph.D. on the <b><font color=" #e59866 ">Development of a Software-Defined Network (SDN) controller for Internet of Things (IoT)</font> </b> under the guidance of <i><a href="https://nehu.ac.in/faculty/display/16"><b>Prof. Goutam Saha</b></i></a> and <i><a href="https://nehu.ac.in/faculty/display/22/Dr-A-K-Maji"><b>Dr. Arnab Kumar Maji</b></a></i> from <a href="https://www.nehu.ac.in"><i>North-Eastern Hill University</i></a>, Shillong, Meghalaya, India in the year 2021. The research work was mainly focused on the control plane of SDN-based IoT networks.</p>
-								<p> Click the link below to download my CV: </p>
-								<a href="RKD_CURRICULUM VITAE_May_2026.pdf" download>Download CV</a>
-							</article>
+  /* ---------- Section headers ---------- */
+  .section-head{display:flex;align-items:baseline;margin-bottom:38px;}
+  .section-num{font-family:'IBM Plex Mono',monospace;color:var(--signal);font-size:0.85rem;}
+  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.1rem);}
+  .rule{height:1px;background:var(--line);border:none;margin:0;}
 
-						<!-- Work -->
-							<article id="work">
-								<h1 class="major">Work</h1>
-							<!--	<span class="image main"><img src="images/vitapcb.jpg" alt="" /></span> -->
-								<h1>Teaching</h1>
-								<p> I have joined <a href="https://iiitk.ac.in/">IIITDM Kurnool, Andhra Pradesh</a> as an <b><font color=" #e59866 ">Assistant Professor</font></b> in May 2025. 
-								<p>From May 2021 to May 2025, I have worked as an <b><font color=" #e59866 ">Assistant Professor Senior Grade 2</font></b> at <a href="https://vitap.ac.in">VIT-AP University</a>, Andhra Pradesh, India</p>
-								<p>Prior to joining VIT-AP University, I worked as an <b> <font color=" #e59866 ">Assistant Professor</font></b> at <a href="https://smu.edu.in/smit.html/">Sikkim Manipal Institute of Technology</a>, Sikkim, India from August 2020 to May 2021.</p>
-								<p>Additionally,  I served as a <b><font color=" #e59866 ">Visiting Faculty</font></b> at <a href="https://mituniversityindia.edu.in">MIT University Shillong campus</a>, Shillong, Meghalaya, India in 2018.</p>
-								<p>My teaching career began at <a href="https://mzu.edu.in/">Mizoram University</a>, Aizawl, Mizoram, India, where I worked as a <b><font color=" #e59866 ">Guest Faculty</font></b> in the Department of Information Technology from August 2014 to July 2016.</p>
+  section.block{padding:72px 0;}
+  section.block.on-white{background:var(--white);}
 
-								<h1>Resource Person</h1>
-								<ol>
-									<li>
-										Invited Talk delivered, Topic -- <b><font color=" #e59866 ">d)	AI-Driven Business Intelligence & Decision Support</font></b>, on 8th May 2026” organized by the JAIN (Deemed-to-be University) Bangalore, FDP on “AI for Business Analytics”.
-									</li>
-									<li>
-										Invited Talk delivered, Topic -- <b><font color=" #e59866 ">Transforming Real-Time Edge Applications with EdgeAI: Harnessing the Future of Instantaneous Insights</font></b>, on 8th September 2023” organized by the Mizoram University, Short Term Course on “Information and Communication Technology”, Mizoram, India.
-									</li>
-									<li>
-										Invited Talk delivered, Topic -- <b><font color=" #e59866 ">IoT-enabled Smart Sustainable Cities</font></b>, on 28th Feb 2023” organized by Department of Information Technology, IPSG College of Arts & Science, Coimbatore, Tamil Nadu, India. 
-									</li>
-									<li>
-										Invited Talk delivered, Topic -- <b><font color=" #e59866 ">Drawbacks of IoT and its improvement</font></b>, on 19th July 2022” organized by Computer Science and Engineering Department, ICFAI University, Agartala, Tripura, India.
-									</li>
-									<li>
-										5 Days New Faculty Orientation program, Topic -- <b><font color=" #e59866 ">CO/PO/Mapping of CO and PO</font></b>, on 23rd April 2022, - April 2022” organized by Center for Teaching and Learning, VIT-AP University, Andhra Pradesh, India.
-									</li>
-									<li>
-										Latex Workshop, Topic -- <b><font color=" #e59866 ">Handson on Latex</font></b>, during 8th Oct – 14th October, 2020 in the Department of CSE, Sikkim Manipal Institute of Technology, Sikkim, India.
-									</li>
-									<li>
-										AICTE Training and Learning (ATAL) Academy Programme, Topic -- <b><font color=" #e59866 ">Improved IoT platforms in Simulation</font></b> during 5th Oct – 9th October 2020 in the Department of IT, North-Eastern Hill University, Shillong, Meghalaya, India.
-									</li>
-									<li>
-										AICTE Training and Learning (ATAL) Academy Programme, Topic -- <b><font color=" #e59866 ">IoT Applications: Software based simulation</font></b>, during 27th Sept – 4th October 2019 in the Department of IT, Mizoram University, Aizawl, Mizoram, India.
-									</li>
-								</ol>
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:36px;}
+  .monogram{
+    width:104px;height:104px;border-radius:50%;
+    background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;flex-shrink:0;
+    box-shadow:0 0 0 6px var(--white), 0 0 0 7px var(--line);
+  }
+  .profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 6px var(--white), 0 0 0 7px var(--line);}
+  .about-top{display:flex;gap:26px;align-items:center;margin-bottom:26px;flex-wrap:wrap;}
+  .about-name h3{font-size:1.4rem;}
+  .about-name p{margin:4px 0 0;color:var(--ink-soft);font-size:0.95rem;}
+  .about p{max-width:760px;font-size:1.02rem;color:var(--ink);}
+  .about p + p{margin-top:16px;}
+  .about strong{color:var(--ink);}
 
-								<h1>Workshop Organized</h1>
-								<ol>
-									<li>
-										Five Day Faculty Workshop on <b><font color=" #e59866 ">“Outcome based Education and National Education Policy"</font></b> from 27th August - 31st August 2024, VIT-AP University, Amaravati, Andhra Pradesh, India.
-									</li>
-									<li>
-										Five Day Faculty Workshop on <b><font color=" #e59866 ">“Research Proposal Writing & Funding Opportunities"</font></b> from 1st March - 5th March 2022, VIT-AP University, Amaravati, Andhra Pradesh, India.
-									</li>
-									<li>
-										One Day National Level Workshop on <b><font color=" #e59866 ">“CUDA Programming with Python”</font></b> sponsored by NVIDIA Deep Learning Institute (DLI) – 9th May 2022, VIT-AP University, Amaravati, Andhra Pradesh, India.
-									</li>
-								</ol>
+  /* ---------- Recent updates ---------- */
+  .updates{list-style:none;margin:0;padding:0;position:relative;}
+  .updates::before{
+    content:"";position:absolute;left:86px;top:8px;bottom:8px;width:1px;background:var(--line);
+  }
+  .updates li{
+    display:grid;grid-template-columns:86px 24px 1fr;align-items:start;
+    padding:16px 0;border-bottom:1px dashed var(--line);
+    gap:0;
+  }
+  .updates li:last-child{border-bottom:none;}
+  .u-date{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink-soft);padding-top:3px;}
+  .u-node{display:flex;justify-content:center;padding-top:5px;}
+  .u-node span{width:9px;height:9px;border-radius:50%;background:var(--signal);display:block;position:relative;z-index:2;box-shadow:0 0 0 4px var(--paper);}
+  .u-text{font-size:0.98rem;padding-left:12px;}
+  .u-text b{color:var(--ink);}
 
-								<h1>Professional Service</h1>
-								<ol>
-									<li>
-										<b><font color="#e59866">Technical Program Committee</font></b> for <a href="http://www.dsne.in/">International Conference on Data Science and Network Engineering (ICDSNE 2023), 2nd -3rd June, 2023, Organized by the Department of Computer Science and Engineering, National Institute of Technology Agartala (NIT Agartala), India. </a> 
-									</li>
-									<li>
-										<b><font color="#e59866">Editorial Board Member</font></b> for <a href="https://primerascientific.com/psen/editorialboard">PriMera Scientific Engineering (PSEN)</a> 
-									</li>
-									<li>
-										<b><font color="#e59866">Editorial Board Member</font></b> for <a href="https://www.sciencepublishinggroup.com/journal/editorialboard?journalid=130">International Journal of Sensors and Sensor Networks</a> 
-									</li>
-									<li>
-										<b><font color=" #e59866 ">Technical Program Committee</font></b> for the 4th edition of the International Conference on Computing and Communication Systems, 13th - 15th October, 2022, Organized by the Department of Information Technology, North-Eastern Hill University (NEHU), Shillong, Meghalaya, India (<a href="https://i3cs2022.in/#team">I3CS 2022</a>).
-									</li>
-									<li>
-										<b><font color=" #e59866 ">Technical Program Committee</font></b> for International Conference on Smart Education, Health and ICT, 14th - 15th April 2022, Oxford,United Kingdom (<a href="https://shi.iape-conf.org">SHI 2022</a>).
-									</li>
-									<li>
-										<b><font color=" #e59866 ">Technical Program Committee</font></b> for 3rd International Conference on Advanced Computational and Communication Paradigms, Organized by the Dept of Computer Science and Engineering Sikkim Manipal Institute of Technology (SMIT), Majitar, Sikkim-737136, India (<a href="https://smu.edu.in/smu/news-events/events-list/ICACCP2021.html">ICACCP-2021</a>).
-									</li>
-								</ol>
-								
-								<h1>Journal Reviewer</h1>
-								<ol>
-									<li>
-										IEEE Internet of Things
-									</li>
-									<li>
-										IEEE Transactions on Vehicular Technology
-									</li>
-									<li>
-										IEEE Transactions on Mobile Computing
-									</li>
-									<li>
-										IEEE Transactions on Wireless Communications
-									</li>
-									<li>
-										IEEE Sensor
-									</li>
-									<li>
-										Wiley Transactions on Emerging Telecommunications Technologies
-									</li>
-									<li>
-										Springer Wireless Personal Communication
-									</li>
-								</ol>
+  /* ---------- chips ---------- */
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+  .chip{
+    background:var(--white);border:1px solid var(--line);padding:9px 16px;border-radius:3px;
+    font-size:0.92rem;color:var(--ink);
+  }
+  .chip::before{content:"◆ ";color:var(--signal);font-size:0.6rem;vertical-align:middle;}
 
-					</article>
+  .profile-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+  .profile-links a{
+    display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--line);
+    padding:9px 14px;border-radius:3px;font-size:0.85rem;color:var(--ink);
+  }
+  .profile-links a:hover{border-color:var(--signal);text-decoration:none;color:var(--signal-deep);}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
 
-						<!-- About -->
-							<article id="research">
-								<h1 class="research">Research and Publication</h1>
-								<h2>Research</h2>
-								
-								<p> My area of research includes the Internet of Things (IoT), Software-Defined Networks (SDN), Edge Computing, EdgeAI, and Blockchain. </p>
-								<h2> Ph.D. Summary</h2>
-								<p>During my Ph.D. research, I specialized in SDN and IoT networks, proposing innovative architectures like SD-6LN, 6LE-SDN, Nx-IoT, FT-SDN, and FoSDN for SDN-based IoT networks. I also developed a lightweight SDN-based IoT protocol to enhance interoperability between SDN and IoT networks. Through rigorous evaluation using real-time testbeds and simulations, with a focus on edge-based IoT networks, my research significantly enhanced scalability, availability, and reliability in SDN-based IoT networks. The outcomes of this work were published in esteemed journals and conferences, and I have also submitted patent applications.</p>
-								<h2>My Research Profile</h2>
-								<ul>
-	<li><a href="https://scholar.google.com/citations?user=pf8CBaIAAAAJ"> 
-		<img src="https://www.gstatic.com/images/branding/product/1x/scholar_24dp.png" alt="Google Scholar" width="24" height="24"> 
-	: pf8CBaIAAAAJ</a></li>
+  /* ---------- Timeline (education/work) ---------- */
+  .two-col{display:grid;grid-template-columns:1fr;gap:56px;}
+  @media(min-width:820px){.two-col{grid-template-columns:1fr 1fr;}}
+  .tl-title{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--signal-deep);margin-bottom:22px;
+  }
+  .tl{list-style:none;margin:0;padding:0;border-left:1px solid var(--line);}
+  .tl li{padding:0 0 26px 22px;position:relative;}
+  .tl li::before{
+    content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;
+    background:var(--white);border:2px solid var(--signal);
+  }
+  .tl li:last-child{padding-bottom:0;}
+  .tl .yr{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--amber);display:block;margin-bottom:3px;}
+  .tl .role{font-weight:600;color:var(--ink);}
+  .tl .org{color:var(--ink-soft);font-size:0.93rem;}
 
-	<!-- ORCID ID -->
-	
-	<li><a href="https://orcid.org/0000-0001-5431-6236">
-		<img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD" width="16" height="16">
-	ORCID ID: 0000-0001-5431-6236</a></li>
+  /* ---------- Publications ---------- */
+  .pub-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px;}
+  .pub-tab{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;padding:8px 14px;border:1px solid var(--line);
+    background:var(--white);border-radius:100px;cursor:pointer;color:var(--ink-soft);
+  }
+  .pub-tab.active{background:var(--ink);color:var(--white);border-color:var(--ink);}
+  .pub-panel{display:none;}
+  .pub-panel.active{display:block;}
+  .pub-list{list-style:none;margin:0;padding:0;counter-reset:pub;}
+  .pub-list li{
+    counter-increment:pub;
+    display:grid;grid-template-columns:34px 1fr;gap:14px;
+    padding:18px 0;border-bottom:1px solid var(--line);
+  }
+  .pub-list li:first-child{padding-top:0;}
+  .pub-list li::before{
+    content:counter(pub,decimal-leading-zero);
+    font-family:'IBM Plex Mono',monospace;color:var(--signal);font-size:0.85rem;padding-top:2px;
+  }
+  .pub-list .p-title{color:var(--ink);}
+  .pub-list .p-meta{color:var(--ink-soft);font-size:0.88rem;margin-top:4px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:.03em;
+    background:var(--paper-deep);color:var(--ink-soft);padding:2px 8px;border-radius:100px;margin-left:6px;
+  }
+  .badge.granted{background:#DEEEE0;color:#1F6B2E;}
+  .badge.filed{background:#F3E4CE;color:#8A5A16;}
 
-	<!-- Scopus -->
-	
-	<li><a href="https://www.scopus.com/authid/detail.uri?authorId=57206946558">
-		<img src="https://www.elsevier.com/__data/assets/image/0010/99191/scopusicon.gif" alt="Scopus" width="24" height="24">
-	: 57206946558</a></li>
+  /* ---------- Service ---------- */
+  .service-grid{display:grid;grid-template-columns:1fr;gap:40px;}
+  @media(min-width:820px){.service-grid{grid-template-columns:repeat(3,1fr);}}
+  .service-card h4{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--signal-deep);margin-bottom:16px;
+  }
+  .service-card ul{margin:0;padding:0;list-style:none;}
+  .service-card li{padding:8px 0;border-bottom:1px dotted var(--line);font-size:0.92rem;}
+  .service-card li:last-child{border-bottom:none;}
 
-	<!-- Vidwan -->
-	
-	<li><a href="https://vidwan.inflibnet.ac.in/profile/198602">
-		<img src="https://vidwan.inflibnet.ac.in/img/favicon.png" alt="Vidwan" width="16" height="16">
-	: 198602</a></li>
+  .talks{list-style:none;margin:0;padding:0;}
+  .talks li{padding:16px 0;border-bottom:1px solid var(--line);font-size:0.95rem;}
+  .talks li:first-child{padding-top:0;}
+  .talks .t-date{font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--amber);display:block;margin-bottom:4px;}
 
-	<!-- Researcher ID -->
-	
-	<li><a href="https://publons.com/researcher/F-7441-2017">
-		<img src="https://publons.com/static/images/favicon.ico" alt="Researcher ID" width="16" height="16">
-	: F-7441-2017</a></li>
+  /* ---------- Contact ---------- */
+  .contact-block{
+    background:var(--ink);color:var(--paper);border-radius:4px;padding:56px 44px;
+    display:grid;grid-template-columns:1fr;gap:30px;
+  }
+  @media(min-width:760px){.contact-block{grid-template-columns:1.2fr 1fr;padding:64px;}}
+  .contact-block h2{color:var(--white);}
+  .contact-block .sub{color:#9aa4b8;margin-top:14px;max-width:460px;}
+  .contact-line{display:flex;gap:12px;margin-top:22px;font-size:0.95rem;align-items:flex-start;}
+  .contact-line .k{font-family:'IBM Plex Mono',monospace;color:var(--signal);width:80px;flex-shrink:0;font-size:0.78rem;padding-top:2px;}
+  .contact-line a, .contact-line span{color:var(--paper);}
+  footer{
+    text-align:center;padding:34px 20px;color:var(--ink-soft);font-size:0.82rem;
+  }
+  footer p{margin:4px 0;}
 
-	<!-- ResearchGate -->
-	
-	<li><a href="https://www.researchgate.net/profile/Rohit-Das-3">
-		<img src="https://www.researchgate.net/apple-touch-icon.png" alt="ResearchGate" width="16" height="16">
-	ResearchGate</a></li></ul>
-								<h2>Journals</h2>
-									<ol>
-									<li> Roy, K. S., Kumar, M., S., Deb, S., <b> Das, R. K. </b>, & Hassan, S. M. (2026). <a href="https://link.springer.com/article/10.1007/s12198-026-00329-y"> <font color=" #33fcff ">Taxonomy of threats, security mechanisms, and regulatory frameworks for cargo delivery drones.</a></font> Journal of Transportation Security. Vol. 19, Issue 5, pp. 5, DOI: 10.1007/s12198-026-00329-y, ISSN No. 1938-775X, Published Online: 04 February 2026<b> (Scopus, IF: 1.6)</b></li>
-									<li> <b>Das, R. K.</b>, Ahmed, N., Maji, A. K., & Saha, G. (2023). <a href="https://ieeexplore.ieee.org/abstract/document/10265757"> <font color=" #33fcff ">Edge Controller-Assisted SDN Architecture for Internet of Things.</a></font> IEEE Sensors Journal. Vol. 23, Issue 22, pp. 28182-28190, DOI: 10.1109/JSEN.2023.3317841, ISSN No. 1558-1748, Published Online: 15 November 2023<b> (SCI, IF: 4.3)</b></li>
-									<li>Gadhamsetty, V.D.A., <b>Das, R.K</b> (2023).<a href="https://link.springer.com/article/10.1007/s11227-023-05392-z"> <font color=" #33fcff ">ASM-SDN: an automated station migration system in cluster-based heterogeneous software-defined network</font> </a>. The Journal of Supercomputing, Vol. 79, Issue 17, pp. 18993–19018, 2023. DOI: 10.1007/s11227-023-05392-z, ISSN No. 0920-8542, Published Online: May 23, 2023 <b>(SCI, IF: 3.3)</b></li>
-									<li><b>Das, R. K.</b>, Ahmed, N., Maji, A. K., & Saha, G. (2023).<a href="https://ieeexplore.ieee.org/abstract/document/9924184"> <font color=" #33fcff ">Nx-IoT: Improvement of Conventional IoT Framework by Incorporating SDN Infrastructure</font> </a>. IEEE Internet of Things Journal, Vol. 10, No. 3, pp. 2473-2482, 2023. DOI: 10.1109/JIOT.2022.3215650, ISSN No. 2327-4662, Published Online: Feb 1, 2023 <b>(SCI, IF: 10.6)</b></li>
-									<li>Rahman, M. S., & <b>Das, R. K.</b> (2022).<a href="https://www.sciencedirect.com/science/article/pii/S2214785322014961"> <font color=" #33fcff ">RTID: On-demand real-time data processing for IoT network</font> </a>. Materials Today: Proceedings, Vol. 62, No. 7, pp. 4721-4725, 2022.DOI: 10.1016/j.matpr.2022.03.168, ISSN No. 2214-7853, Published Online: Jan 01, 2022 <b>(Scopus)</b></li>
-									<li><b>Das, R. K.</b>, Maji, A. K., & Saha, G. (2022).<a href="https://www.inderscienceonline.com/doi/abs/10.1504/IJGUC.2022.125144"><font color=" #33fcff ">SD-6LN: improved existing internet of things framework by incorporating software defined network approach</font></a>. International Journal of Grid and Utility Computing, Vol. 13, No. 4, pp. 406-413, 2022. DOI: 10.1504/IJGUC.2022.125144, eISSN: 1741-8488, Published Online: August 20, 2022 <b>(Scopus)</b></li>
-										<li><b>Das, R. K.</b>, Ahmed, N., Pohrmen, F. H., Maji, A. K., & Saha, G. (2020). <a href="https://ieeexplore.ieee.org/abstract/document/9080075/"> <font color=" #33fcff "> 6LESDN: An Edge-Based Software-Defined Network for Internet of Things</a> </font>. IEEE Internet of Things Journal, Vol. 7, No. 8, pp. 7725-7733, 2020. DOI: 10.1109/JIOT.2020.2990936, ISSN No. 2327-4662, Published Online: August 2020 <b>(SCI, IF: 10.6)</b></li>
-									  <li><b>Das, R. K.</b>, Pohrmen, F. H., Maji, A. K., & Saha, G. (2020). <a href="https://link.springer.com/article/10.1007/s11277-020-07407-x"> <font color=" #33fcff "> FT-SDN: A Fault Tolerant Distributed Architecture for Software Defined Network</a> </font>. Wireless Personal Communications, Vol. 106, No. 2, pp. 1045-1066, 2020. DOI: 10.1007/s11277-020-07407-x, ISSN No. 0929-6212, Published Online: April 28, 2020 <b>(SCI, IF: 2.2)</b></li>
-									  <li>Pohrmen, F. H., <b>Das, R. K.</b>, & Saha, G. (2019). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3741"> <font color=" #33fcff "> Blockchain‐based security aspects in heterogeneous Internet‐of‐Things networks: A survey</a> </font>. Transactions on Emerging Telecommunications Technologies, Vol. 30, No. 10, pp. e3741, 2019.  DOI: 10.1002/ett.3741, ISSN No. 2161-3915, Published Online: Sept 06, 2019 <b>(SCI, IF: 3.31)</b></li>
-									  <li><b>Kumar Das, R.</b>, Khongbuh, W., Hazel Pohrmen, F., Kumar Maji, A., & Saha, G. (2019). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3355524"> <font color=" #33fcff "> Controller Placement and Selection Strategy for SDN</a> </font>. International Journal of Computational Intelligence & IoT, Vol. 2, No. 2, pp. 473-477, 2019.  Published Online: Mar 21, 2019  </li>
-									</ol>
-								
-								<h2>Conferences</h2>
-								<ol>
-									<li>Rohit Kumar Das, Akarsh Gupta, Shivam Boda, Parth Joshi, Nurzama Ahmed (15-16 December 2023). <a href="https://link.springer.com/chapter/10.1007/978-981-97-8476-9_28"> <font color=" #33fcff "> A study on the performance of network topologies in SDN-based Edge IoT Network. 2nd International Conference on Data, Electronics and Computing (ICDEC-2023), Mizoram University, Aizawl, Mizoram, India. Lecture Notes in Networks and Systems, vol 1102, (pp. 387-399). Springer, DOI: 10.1007/978-981-97-8476-9_28, ISBN: 978-981-97-8476-9, Published on: 15 November 2024, Conference Date: 15 – 16 December 2023</li>
-									<li>V. D. A. Gadhamsetty and <b>. Kuma</b>R, (2023). <a href="https://ieeexplore.ieee.org/abstract/document/10126117"> <font color=" #33fcff "> A Study on Advanced Networking using Intelligent Systems Applications</a> </font>. IEEE 8th International Conference for Convergence in Technology (I2CT), Lonavla, India (pp. 1-8).  DOI: 10.1109/I2CT57861.2023.10126117, eISBN: 979-8-3503-3401-2, Published on: May 23, 2023. IEEE 8th International Conference for Convergence in Technology (I2CT), Conference Date: 7-9 April 2023, Lonavla, India,</li>						
-									  <li><b>Das, R. K.</b>, Jha, M., & Harizan, S. (2022). <a href="https://link.springer.com/chapter/10.1007/978-981-16-4369-9_3"> <font color=" #33fcff "> Performance Appraisal of 6LoWPAN and OpenFlow in SDN Enabled Edge-Based IoT Network</a> </font>. In Advanced Computational Paradigms and Hybrid Intelligent Computing (pp. 21-29). Springer, Singapore, DOI: 10.1007/978-981-16-4369-9\_3, ISBN: 978-981-16-4369-9, Published on: December 07, 2021. Third International Conference on Advanced Computational and Communication Paradigms (ICACCP), Conference Date: 22-24 March 2021. Sikkim Manipal Institute of Technology (SMIT), Sikkim, India.</li>
-									  <li>Harizan, S., Kuila, P., & <b>Das, R. K.</b> (2022).<a href="https://link.springer.com/chapter/10.1007/978-981-16-4369-9_8"> <font color=" #33fcff "> HSA Based Sensor Nodes Deployment Strategy for Coverage and Connectivity in WSNs</a> </font>. In Advanced Computational Paradigms and Hybrid Intelligent Computing (pp. 73-81). Springer, Singapore, DOI: 10.1007/978-981-16-4369-9_8, ISBN: 978-981-16-4369-9, Published on: December 07, 2021. Third International Conference on Advanced Computational and Communication Paradigms (ICACCP), Conference Date: 22-24 March 2021. Sikkim Manipal Institute of Technology (SMIT), Sikkim, India.</li>
-									  <li><b>Das, R. K.</b>, Pohrmen, F. H., Maji, A. K., & Saha, G. (2021, May).<a href="https://link.springer.com/chapter/10.1007/978-981-33-4084-8_44"> <font color=" #33fcff "> FoSDN: A Software-Defined Edge Computation for Resource Constraint Network</a> </font>. In Proceedings of the International Conference on Computing and Communication Systems: I3CS 2020, Vol. 170, (pp. 463-470). Springer Nature, DOI: 10.1007/978-981-33-4084-8_44, ISBN: 978-981-33-4084-8, Published on: April 11, 2021, Conference Date: 28–30 April 2020, NEHU, Shillong, India</li>
-									  <li><b>Das, R. K.</b>, Maji, A. K., & Saha, G. (2020). <a href="https://link.springer.com/chapter/10.1007/978-981-15-5113-0_48"> <font color=" #33fcff "> SD-6LN: Improved Existing IoT Framework by Incorporating SDN Approach</a></font>.  In International Conference on Innovative Computing and Communications: Proceedings of ICICC 2020, Volume 1, (pp. 599-606) Springer, Singapore, DOI: 10.1007/978-981-15-5113-0_48, ISBN: 978-981-15-5113-0, Published on: August 02, 2020. Conference Date: 21-23 February 2020, Shaheed Sukhdev College of Business Studies, University Of Delhi, Delhi, India </li>
-									  <li>Marshoodulla, S. Z., <b>Das, R. K.</b>, & Saha, G. (2019).<a href="https://link.springer.com/chapter/10.1007/978-3-030-62625-9_7"> <font color=" #33fcff "> Big Data Issues in SDN Based IoT: A Review</a> </font>. In International Conference on Big Data, Machine Learning, and Applications, pp. 72-82, Springer, Cham, DOI: 10.1007/978-3-030-62625-9_7, ISBN: 978-3-030-62625-9, Published on: November 28, 2020</li>
-									  <li>Pohrmen, F. H., <b>Das, R. K.</b>, Khongbuh, W., & Saha, G. (2018, July).<a href="https://link.springer.com/chapter/10.1007/978-981-13-3143-5_29"> <font color=" #33fcff "> Blockchain-based security aspects in Internet of Things network</a> </font>. In International Conference on Advanced Informatics for Computing Research (pp. 346-357). Springer, Singapore, DOI: 10.1007/978-981-13-3143-5_29, ISBN: 978-981-13-3143-5, Published on: November 28, 2018</li>
-									  <li><b>Das, R. K.</b>, Maji, A. K., & Saha, G. (2019).<a href="https://link.springer.com/chapter/10.1007/978-981-13-3450-4_58"> <font color=" #33fcff "> Prospect of improving internet of things by incorporating software-defined network</a> </font>. In Advances in communication, devices and networking (pp. 537-544). Springer, Singapore, DOI: 10.1007/978-981-13-3450-4_58, ISBN: 978-981-13-3450-4, Published on: February 16, 2019</li>
-									<li><b>Das, R. K.</b>, Das, B., & Roy, S.(2014).<a href="https://ieeexplore.ieee.org/abstract/document/6821572"> <font color=" #33fcff "> Performance Appraisal of Learning Automata in Networks</a> </font>. In 2014 Fourth International Conference on Communication Systems and Network Technologies, IEEE (pp. 1110-1113), DOI: 10.1109/CSNT.2014.227, ISBN: 978-1-4799-3070-8, Published on: May 29, 2014 </li>
-								</ol>
-										
-								<h2>Book Authored</h2>
-								<ul>
-									<li><b>Das, R.K.</b>, and Saha, G. (2026). <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003714651/software-defined-networking-iot-systems-goutam-saha-rohit-kumar-das"><font color="#33fcff"> Software-Defined Networking for IoT Systems Architecture, Integration, and Applications</a></font>. 
-									</br>1st Edition, Publisher: John Wiley & Sons, Ltd. DOI: 10.1201/9781003714651, eBook ISBN: 9781003714651 </li>
-								</ul>
-										
-								<h2>Book Chapter</h2>
-								<ul>
-									<li><b>Das, R.K.</b>, and Bordoloi, M. (2026). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394315727.ch18"><font color="#33fcff"> Dynamic Optimization of 6G Networks with AI‐Driven SDN Approaches</a></font>. Driving Innovation by Dynamic Optimization (pp. 355-370). John Wiley & Sons, Ltd. DOI: 10.1002/9781394173006.ch9, ISBN: 9781394315727 </li>
-									<li>Selvaraj, P., <b>Das, R.K.</b>, Burugari, V.K., Karri, G.R., Kanmani, P. and Namburu, A. (2024). <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/9781394173006.ch9"><font color="#33fcff"> Blockchain-Based Energy Transmission System</a></font>. Cyber Physical Energy Systems (pp. 291-323). John Wiley & Sons, Ltd. DOI: 10.1002/9781394173006.ch9, ISBN: 9781394173006 </li>
-									<li><b>Das, R. K.</b> & Roy, S. (2023). <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003188247-8/ml-driven-sdn-agent-blockchain-based-data-authentication-iot-network-rohit-kumar-das-sudipta-roy"><font color="#33fcff">An ML-Driven SDN Agent for Blockchain-Based Data Authentication for IoT Network</a></font>. Blockchain for IoT (pp. 155-165). Chapman and Hall/CRC. </li>
-									</ul>
-										
-								<h2>Patents</h2>
-									<ol>
-											<li>Patent No.: 581720, Title: <font color=" #e59866 ">Smart Automated IoT Based Food Feeding System</font>
-											</br> Inventors: <b>Rohit Kumar Das</b>
-											</br> Application Number: 202341039070, Date of Filing: 07/06/2023, Published on: 30/06/2023<b>Granted on 25/02/2026</b></li>
-										
-											<li>Patent No.: 555363, Title: <font color=" #e59866 ">Multi-Purpose Switch Adaptable for a Specific SDN Based IoT Architecture</font>
-											</br> Inventors: Goutam Saha, <b>Rohit Kumar Das</b>, Nurzaman Ahmed, Arnab Kumar Maji
-											</br> Application Number: 201931049931, Date of Filing: 04/12/2019, Published on: 02/04/2021 <b>Granted on 28/11/2024</b></li>
-										
-											<li>Patent No.: 520906, Title: <font color=" #e59866 ">An improved SDN based IoT system</font>
-											</br> Inventors: Goutam Saha, <b>Rohit Kumar Das</b>, Nurzaman Ahmed, Arnab Kumar Maji
-											</br> Application Number: 202131017791, Date of Filing: 16/04/2021, Published on: 14/01/2022, <b>Granted on 06/03/2024</b></li>
+  ::selection{background:var(--signal);color:#fff;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-											<li> Title: <font color=" #e59866 ">Brain-Computer Interface (BCI) System and Method for Controlling Movements of Wheelchair for Physically Challenged Individuals</font>
-											</br> Inventors: <b>Rohit Kumar Das</b>, Prashant Patel, Monali Bordoloi, Pratyush Kumar Sahoo, Tharakaraman Lakshminarayana, and Katakam Sai Madhu
-											</br> Application Number: 202541062800, Date of Filing: 01/07/2025, Published on: 11/07/2025</li>
-									
-											<li> Title: <font color=" #e59866 ">System and Method for Monitoring Structural Health of Infrastructures and Transmitting Emergency Alerts to Users</font>
-											</br> Inventors: <b>Rohit Kumar Das</b>, Lavanya Kotha, and Chetan Gudditi 
-											</br> Application Number: 202541035142, Date of Filing: 10/04/2025, Published on: 09/05/2025</li>
-																			
-											
-									</ol>
-								
-								<h2>Professonal Member</h2>
-									<ul> 
-										<li>IEEE Senior Member</li>
-										<li>ACM</li>
-										
-									</ul>
-																
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="node"></span>&nbsp;&nbsp;&nbsp;Rohit&nbsp;Kumar&nbsp;Das</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#updates">Updates</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#guidance">Guidance</a>
+      <a href="#publications">Publications</a>
+      <a href="#service">Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    							</article>
+<main id="main">
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<h1>Name: Dr. Rohit Kumar Das</h1>
-								<p>Address: Department of Computer Science and Engineering, Indian Institute of Information Technology Design and Manufacturing Kurnool, Andhra Pradesh 518008</p>
-								<p>Email: rohitdas.it.13@gmail.com</p>
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="topo"></canvas>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Assistant Professor · IIITDM Kurnool</div>
+      <h1>Rohit Kumar Das</h1>
+      <p class="role">I design and build the control-plane intelligence behind next-generation networks — where Software-Defined Networking meets the Internet of Things, Edge AI, and Blockchain.</p>
+      <div class="tags">
+        <span class="tag">SDN</span>
+        <span class="tag">IoT</span>
+        <span class="tag">EDGE AI</span>
+        <span class="tag">BLOCKCHAIN</span>
+        <span class="tag">6LoWPAN</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#contact">Get in touch</a>
+        <a class="btn btn-outline" href="https://scholar.google.com/citations?user=pf8CBaIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a class="btn btn-outline" href="#publications">View publications</a>
+      </div>
+    </div>
+  </section>
 
-							<!-- Contact 	<ul class="icons">
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul> -->
-							</article>
+  <!-- ABOUT -->
+  <section class="block on-white" id="about">
+    <div class="wrap about">
+      <div class="section-head"><h2>About</h2></div>
+      <div class="about-top">
+        <img class="profile-photo" src="index_final_profile.jpg" alt="Dr. Rohit Kumar Das">
+        <div class="about-name">
+          <h3>Dr. Rohit Kumar Das</h3>
+          <p>Department of Computer Science and Engineering, IIITDM Kurnool</p>
+        </div>
+      </div>
+      <p>I am currently working as an <strong>Assistant Professor</strong> at <a href="https://iiitk.ac.in/" target="_blank" rel="noopener">IIITDM Kurnool</a>, Andhra Pradesh, India. I am a native of Assam and was born in Mizoram.</p>
+      <p>I completed my Ph.D. on the <strong>development of a Software-Defined Network (SDN) controller for the Internet of Things (IoT)</strong>, under the guidance of <em>Prof. Goutam Saha</em> and <em>Dr. Arnab Kumar Maji</em> at <a href="https://www.nehu.ac.in" target="_blank" rel="noopener">North-Eastern Hill University</a>, Shillong, Meghalaya, in 2021. That work focused on the control plane of SDN-based IoT networks — proposing architectures that later became the foundation of my ongoing research programme.</p>
+      <div class="cta-row" style="margin-top:28px;">
+        <a class="btn btn-outline" href="https://rohitdas01.github.io/RKD_CURRICULUM%20VITAE_May_2026.pdf" target="_blank" rel="noopener">Download CV ↓</a>
+      </div>
+    </div>
+  </section>
 
-						
-					</div>
+  <!-- RECENT UPDATES -->
+  <section class="block" id="updates">
+    <div class="wrap">
+      <div class="section-head"><h2>Recent Updates</h2></div>
+      <ul class="updates">
+        <li><span class="u-date">29 Jul 2026</span><span class="u-node"><span></span></span><span class="u-text">Coordinated and conducted a <b>One-Day National Ph.D. Colloquium</b> at <b>IIITDM Kurnool</b>.</span></li>
+        <li><span class="u-date">8 May 2026</span><span class="u-node"><span></span></span><span class="u-text">Delivered an invited talk on <b>AI-Driven Business Intelligence &amp; Decision Support</b> at JAIN (Deemed-to-be University), Bangalore — FDP on "AI for Business Analytics."</span></li>
+        <li><span class="u-date">2026</span><span class="u-node"><span></span></span><span class="u-text">Co-authored article <b>"Taxonomy of threats, security mechanisms, and regulatory frameworks for cargo delivery drones"</b> accepted in Journal of Transportation Security.</span></li>
+        <li><span class="u-date">Feb 2026</span><span class="u-node"><span></span></span><span class="u-text">Patent <b>"Smart Automated IoT Based Food Feeding System"</b> officially granted.</span></li>
+        <li><span class="u-date">2026</span><span class="u-node"><span></span></span><span class="u-text">Book <b>"Software-Defined Networking for IoT Systems: Architecture, Integration, and Applications"</b> published with John Wiley &amp; Sons.</span></li>
+        <li><span class="u-date">2026</span><span class="u-node"><span></span></span><span class="u-text">Book chapter <b>"Dynamic Optimization of 6G Networks with AI-Driven SDN Approaches"</b> published.</span></li>
+        <li><span class="u-date">Jul 2025</span><span class="u-node"><span></span></span><span class="u-text">Filed patent application for a <b>Brain-Computer Interface (BCI) system</b> to control wheelchair movement for physically challenged individuals.</span></li>
+        <li><span class="u-date">May 2025</span><span class="u-node"><span></span></span><span class="u-text">Joined <b>IIITDM Kurnool</b>, Andhra Pradesh, as Assistant Professor.</span></li>
+        <li><span class="u-date">Apr 2025</span><span class="u-node"><span></span></span><span class="u-text">Filed patent application for a <b>structural health monitoring &amp; emergency alert system</b> for infrastructure.</span></li>
+        <li><span class="u-date">Nov 2024</span><span class="u-node"><span></span></span><span class="u-text">Patent <b>"Multi-Purpose Switch Adaptable for a Specific SDN Based IoT Architecture"</b> granted.</span></li>
+        <li><span class="u-date">Nov 2024</span><span class="u-node"><span></span></span><span class="u-text">Conference paper on network topology performance in SDN-based Edge IoT published in Springer LNNS (ICDEC 2023).</span></li>
+        <li><span class="u-date">Aug 2024</span><span class="u-node"><span></span></span><span class="u-text">Organized a five-day faculty workshop on <b>Outcome-Based Education and NEP</b> at VIT-AP University.</span></li>
+        <li><span class="u-date">Mar 2024</span><span class="u-node"><span></span></span><span class="u-text">Patent <b>"An improved SDN based IoT system"</b> granted.</span></li>
+      </ul>
+    </div>
+  </section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; This page is maintained by Dr. Rohit Kumar Das</p>
-						<p class="copyright">&copy; <font text="small">The information provided should not be used for any activities without the knowledge of the author</font> </p>
-					</footer>
+  <!-- RESEARCH -->
+  <section class="block on-white" id="research">
+    <div class="wrap">
+      <div class="section-head"><h2>Research</h2></div>
+      <p style="max-width:760px;font-size:1.02rem;">My research spans the <strong>Internet of Things (IoT)</strong>, <strong>Software-Defined Networks (SDN)</strong>, <strong>Edge Computing</strong>, <strong>Edge AI</strong>, and <strong>Blockchain</strong>.</p>
+      <div class="chip-row">
+        <span class="chip">Internet of Things</span>
+        <span class="chip">Software-Defined Networking</span>
+        <span class="chip">Edge Computing</span>
+        <span class="chip">Edge AI</span>
+        <span class="chip">Blockchain</span>
+        <span class="chip">6LoWPAN / 6TiSCH</span>
+      </div>
 
-			</div>
+      <h3 style="font-size:1.1rem;margin-top:48px;margin-bottom:14px;">Ph.D. Summary</h3>
+      <p style="max-width:760px;">During my Ph.D., I specialised in SDN and IoT networks, proposing architectures including <span class="mono">SD-6LN</span>, <span class="mono">6LE-SDN</span>, <span class="mono">Nx-IoT</span>, <span class="mono">FT-SDN</span>, and <span class="mono">FoSDN</span>. I also developed a lightweight SDN-based IoT protocol to improve interoperability between SDN and IoT networks. Through evaluation on real-time testbeds and simulations focused on edge-based IoT networks, this work significantly improved scalability, availability, and reliability in SDN-based IoT networks — with outcomes published across journals, conferences, and patent filings.</p>
 
-		<!-- BG -->
-			<div id="bg"></div>
+      <h3 style="font-size:1.1rem;margin-top:48px;margin-bottom:14px;">Research Profiles</h3>
+      <div class="profile-links">
+        <a href="https://scholar.google.com/citations?user=pf8CBaIAAAAJ" target="_blank" rel="noopener"><span class="dot"></span>Google Scholar</a>
+        <a href="https://orcid.org/0000-0001-5431-6236" target="_blank" rel="noopener"><span class="dot"></span>ORCID · 0000-0001-5431-6236</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57206946558" target="_blank" rel="noopener"><span class="dot"></span>Scopus · 57206946558</a>
+        <a href="https://vidwan.inflibnet.ac.in/profile/198602" target="_blank" rel="noopener"><span class="dot"></span>Vidwan · 198602</a>
+        <a href="https://publons.com/researcher/F-7441-2017" target="_blank" rel="noopener"><span class="dot"></span>Researcher ID · F-7441-2017</a>
+        <a href="https://www.researchgate.net/profile/Rohit-Das-3" target="_blank" rel="noopener"><span class="dot"></span>ResearchGate</a>
+        <a href="https://www.linkedin.com/in/rohit-kumar-das-84647aa8/" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+      </div>
+    </div>
+  </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <!-- EXPERIENCE / EDUCATION -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="section-head"><h2>Education &amp; Experience</h2></div>
+      <div class="two-col">
+        <div>
+          <div class="tl-title">Education</div>
+          <ul class="tl">
+            <li><span class="yr">2018 – 2021</span><span class="role">Ph.D., Information Technology</span><span class="org">North-Eastern Hill University, Shillong, Meghalaya, India</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="tl-title">Work Experience</div>
+          <ul class="tl">
+            <li><span class="yr">May 2025 – Present</span><span class="role">Assistant Professor, IIITDM Kurnool, Andhra Pradesh</span></li>
+            <li><span class="yr">May 2021 – May 2025</span><span class="role">Senior Grade 2, VIT-AP University, Andhra Pradesh</span></li>
+            <li><span class="yr">Aug 2020 – May 2021</span><span class="role">Assistant Professor, Sikkim Manipal Institute of Technology, Sikkim</span></li>
+            <li><span class="yr">2018</span><span class="role">Visiting Faculty, MIT University, Shillong Campus, Meghalaya</span></li>
+            <li><span class="yr">Aug 2014 – Jul 2016</span><span class="role">Guest Faculty, Dept. of IT, Mizoram University, Mizoram</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	</body>
+
+  <!-- STUDENT GUIDANCE -->
+  <section class="block" id="guidance">
+    <div class="wrap">
+      <div class="section-head"><h2>Ph.D. &amp; M.Tech Student Guidance</h2></div>
+      <p style="max-width:760px;font-size:1.02rem;margin-bottom:30px;">
+        All scholars under my guidance are working in the broad areas of <strong>Software-Defined Networking (SDN)</strong> and <strong>Internet of Things (IoT)</strong>, with a primary focus on <strong>Edge Computing</strong> and <strong>Edge AI</strong>.
+      </p>
+      <div class="two-col">
+        <div class="service-card">
+          <h4>Ph.D. Student</h4>
+          <ul>
+            <li><strong>Sai Kuntala Sriya</strong> <span class="badge">Admission 2026</span></li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>M.Tech Students</h4>
+          <ul>
+            <li><strong>Avinash Singh</strong> <span class="badge">Admission 2025</span></li>
+            <li><strong>Pavan Chandra Punem</strong> <span class="badge">Admission 2025</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="block on-white" id="publications">
+    <div class="wrap">
+      <div class="section-head"><h2>Publications</h2></div>
+
+      <div class="pub-tabs" role="tablist">
+        <button class="pub-tab active" data-tab="journals">Journals (10)</button>
+        <button class="pub-tab" data-tab="conferences">Conferences (9)</button>
+        <button class="pub-tab" data-tab="books">Books &amp; Chapters</button>
+        <button class="pub-tab" data-tab="patents">Patents (5)</button>
+      </div>
+
+      <div class="pub-panel active" id="panel-journals">
+        <ul class="pub-list">
+          <li><div><div class="p-title">Roy, K. S., Kumar, M. S., Deb, S., <strong>Das, R. K.</strong>, &amp; Hassan, S. M. (2026). <a href="https://link.springer.com/article/10.1007/s12198-026-00329-y" target="_blank" rel="noopener">Taxonomy of threats, security mechanisms, and regulatory frameworks for cargo delivery drones</a>.</div><div class="p-meta">Journal of Transportation Security, Vol. 19, Issue 5 · DOI: 10.1007/s12198-026-00329-y <span class="badge">Scopus · IF 1.6</span></div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Ahmed, N., Maji, A. K., &amp; Saha, G. (2023). <a href="https://ieeexplore.ieee.org/abstract/document/10265757" target="_blank" rel="noopener">Edge Controller-Assisted SDN Architecture for Internet of Things</a>.</div><div class="p-meta">IEEE Sensors Journal, Vol. 23, Issue 22, pp. 28182–28190 · DOI: 10.1109/JSEN.2023.3317841 <span class="badge">SCI · IF 4.3</span></div></div></li>
+          <li><div><div class="p-title">Gadhamsetty, V. D. A., &amp; <strong>Das, R. K.</strong> (2023). <a href="https://link.springer.com/article/10.1007/s11227-023-05392-z" target="_blank" rel="noopener">ASM-SDN: an automated station migration system in cluster-based heterogeneous software-defined network</a>.</div><div class="p-meta">The Journal of Supercomputing, Vol. 79, Issue 17, pp. 18993–19018 · DOI: 10.1007/s11227-023-05392-z <span class="badge">SCI · IF 3.3</span></div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Ahmed, N., Maji, A. K., &amp; Saha, G. (2023). <a href="https://ieeexplore.ieee.org/abstract/document/9924184" target="_blank" rel="noopener">Nx-IoT: Improvement of Conventional IoT Framework by Incorporating SDN Infrastructure</a>.</div><div class="p-meta">IEEE Internet of Things Journal, Vol. 10, No. 3, pp. 2473–2482 · DOI: 10.1109/JIOT.2022.3215650 <span class="badge">SCI · IF 10.6</span></div></div></li>
+          <li><div><div class="p-title">Rahman, M. S., &amp; <strong>Das, R. K.</strong> (2022). <a href="https://www.sciencedirect.com/science/article/pii/S2214785322014961" target="_blank" rel="noopener">RTID: On-demand real-time data processing for IoT network</a>.</div><div class="p-meta">Materials Today: Proceedings, Vol. 62, No. 7, pp. 4721–4725 · DOI: 10.1016/j.matpr.2022.03.168 <span class="badge">Scopus</span></div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Maji, A. K., &amp; Saha, G. (2022). <a href="https://www.inderscienceonline.com/doi/abs/10.1504/IJGUC.2022.125144" target="_blank" rel="noopener">SD-6LN: improved existing internet of things framework by incorporating software defined network approach</a>.</div><div class="p-meta">International Journal of Grid and Utility Computing, Vol. 13, No. 4, pp. 406–413 · DOI: 10.1504/IJGUC.2022.125144 <span class="badge">Scopus</span></div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Ahmed, N., Pohrmen, F. H., Maji, A. K., &amp; Saha, G. (2020). <a href="https://ieeexplore.ieee.org/abstract/document/9080075/" target="_blank" rel="noopener">6LESDN: An Edge-Based Software-Defined Network for Internet of Things</a>.</div><div class="p-meta">IEEE Internet of Things Journal, Vol. 7, No. 8, pp. 7725–7733 · DOI: 10.1109/JIOT.2020.2990936 <span class="badge">SCI · IF 10.6</span></div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Pohrmen, F. H., Maji, A. K., &amp; Saha, G. (2020). <a href="https://link.springer.com/article/10.1007/s11277-020-07407-x" target="_blank" rel="noopener">FT-SDN: A Fault Tolerant Distributed Architecture for Software Defined Network</a>.</div><div class="p-meta">Wireless Personal Communications, Vol. 106, No. 2, pp. 1045–1066 · DOI: 10.1007/s11277-020-07407-x <span class="badge">SCI · IF 2.2</span></div></div></li>
+          <li><div><div class="p-title">Pohrmen, F. H., <strong>Das, R. K.</strong>, &amp; Saha, G. (2019). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ett.3741" target="_blank" rel="noopener">Blockchain-based security aspects in heterogeneous Internet-of-Things networks: A survey</a>.</div><div class="p-meta">Transactions on Emerging Telecommunications Technologies, Vol. 30, No. 10, e3741 · DOI: 10.1002/ett.3741 <span class="badge">SCI · IF 3.31</span></div></div></li>
+          <li><div><div class="p-title">Kumar Das, R., Khongbuh, W., Hazel Pohrmen, F., Kumar Maji, A., &amp; Saha, G. (2019). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3355524" target="_blank" rel="noopener">Controller Placement and Selection Strategy for SDN</a>.</div><div class="p-meta">International Journal of Computational Intelligence &amp; IoT, Vol. 2, No. 2, pp. 473–477</div></div></li>
+        </ul>
+      </div>
+
+      <div class="pub-panel" id="panel-conferences">
+        <ul class="pub-list">
+          <li><div><div class="p-title">Das, R. K., Gupta, A., Boda, S., Joshi, P., &amp; Ahmed, N. (2023). <a href="https://link.springer.com/chapter/10.1007/978-981-97-8476-9_28" target="_blank" rel="noopener">A study on the performance of network topologies in SDN-based Edge IoT Network</a>.</div><div class="p-meta">2nd ICDEC 2023, Mizoram University · Springer LNNS, Vol. 1102, pp. 387–399</div></div></li>
+          <li><div><div class="p-title">Gadhamsetty, V. D. A., &amp; <strong>Das, R. K.</strong> (2023). <a href="https://ieeexplore.ieee.org/abstract/document/10126117" target="_blank" rel="noopener">A Study on Advanced Networking using Intelligent Systems Applications</a>.</div><div class="p-meta">IEEE 8th ICCT (I2CT), Lonavla, India, pp. 1–8 · DOI: 10.1109/I2CT57861.2023.10126117</div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Jha, M., &amp; Harizan, S. (2022). <a href="https://link.springer.com/chapter/10.1007/978-981-16-4369-9_3" target="_blank" rel="noopener">Performance Appraisal of 6LoWPAN and OpenFlow in SDN Enabled Edge-Based IoT Network</a>.</div><div class="p-meta">3rd ICACCP, SMIT Sikkim · Springer, pp. 21–29</div></div></li>
+          <li><div><div class="p-title">Harizan, S., Kuila, P., &amp; <strong>Das, R. K.</strong> (2022). <a href="https://link.springer.com/chapter/10.1007/978-981-16-4369-9_8" target="_blank" rel="noopener">HSA Based Sensor Nodes Deployment Strategy for Coverage and Connectivity in WSNs</a>.</div><div class="p-meta">3rd ICACCP, SMIT Sikkim · Springer, pp. 73–81</div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Pohrmen, F. H., Maji, A. K., &amp; Saha, G. (2021). <a href="https://link.springer.com/chapter/10.1007/978-981-33-4084-8_44" target="_blank" rel="noopener">FoSDN: A Software-Defined Edge Computation for Resource Constraint Network</a>.</div><div class="p-meta">I3CS 2020, NEHU Shillong · Springer, Vol. 170, pp. 463–470</div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Maji, A. K., &amp; Saha, G. (2020). <a href="https://link.springer.com/chapter/10.1007/978-981-15-5113-0_48" target="_blank" rel="noopener">SD-6LN: Improved Existing IoT Framework by Incorporating SDN Approach</a>.</div><div class="p-meta">ICICC 2020, University of Delhi · Springer, pp. 599–606</div></div></li>
+          <li><div><div class="p-title">Marshoodulla, S. Z., <strong>Das, R. K.</strong>, &amp; Saha, G. (2019). <a href="https://link.springer.com/chapter/10.1007/978-3-030-62625-9_7" target="_blank" rel="noopener">Big Data Issues in SDN Based IoT: A Review</a>.</div><div class="p-meta">Intl. Conf. on Big Data, Machine Learning, and Applications · Springer, pp. 72–82</div></div></li>
+          <li><div><div class="p-title">Pohrmen, F. H., <strong>Das, R. K.</strong>, Khongbuh, W., &amp; Saha, G. (2018). <a href="https://link.springer.com/chapter/10.1007/978-981-13-3143-5_29" target="_blank" rel="noopener">Blockchain-based security aspects in Internet of Things network</a>.</div><div class="p-meta">Intl. Conf. on Advanced Informatics for Computing Research · Springer, pp. 346–357</div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, Das, B., &amp; Roy, S. (2014). <a href="https://ieeexplore.ieee.org/abstract/document/6821572" target="_blank" rel="noopener">Performance Appraisal of Learning Automata in Networks</a>.</div><div class="p-meta">4th Intl. Conf. on Communication Systems and Network Technologies, IEEE, pp. 1110–1113</div></div></li>
+        </ul>
+      </div>
+
+      <div class="pub-panel" id="panel-books">
+        <h3 style="font-size:1.05rem;margin-bottom:14px;">Book Authored</h3>
+        <ul class="pub-list" style="margin-bottom:36px;">
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, &amp; Saha, G. (2026). <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003714651/software-defined-networking-iot-systems-goutam-saha-rohit-kumar-das" target="_blank" rel="noopener">Software-Defined Networking for IoT Systems: Architecture, Integration, and Applications</a>.</div><div class="p-meta">1st Edition, John Wiley &amp; Sons · DOI: 10.1201/9781003714651</div></div></li>
+        </ul>
+        <h3 style="font-size:1.05rem;margin-bottom:14px;">Book Chapters</h3>
+        <ul class="pub-list">
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, &amp; Bordoloi, M. (2026). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394315727.ch18" target="_blank" rel="noopener">Dynamic Optimization of 6G Networks with AI-Driven SDN Approaches</a>.</div><div class="p-meta">Driving Innovation by Dynamic Optimization, pp. 355–370 · John Wiley &amp; Sons</div></div></li>
+          <li><div><div class="p-title">Selvaraj, P., <strong>Das, R. K.</strong>, Burugari, V. K., Karri, G. R., Kanmani, P., &amp; Namburu, A. (2024). <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/9781394173006.ch9" target="_blank" rel="noopener">Blockchain-Based Energy Transmission System</a>.</div><div class="p-meta">Cyber Physical Energy Systems, pp. 291–323 · John Wiley &amp; Sons</div></div></li>
+          <li><div><div class="p-title"><strong>Das, R. K.</strong>, &amp; Roy, S. (2023). <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003188247-8/ml-driven-sdn-agent-blockchain-based-data-authentication-iot-network-rohit-kumar-das-sudipta-roy" target="_blank" rel="noopener">An ML-Driven SDN Agent for Blockchain-Based Data Authentication for IoT Network</a>.</div><div class="p-meta">Blockchain for IoT, pp. 155–165 · Chapman and Hall/CRC</div></div></li>
+        </ul>
+      </div>
+
+      <div class="pub-panel" id="panel-patents">
+        <ul class="pub-list">
+          <li><div><div class="p-title">Smart Automated IoT Based Food Feeding System <span class="badge granted">Granted 25/02/2026</span></div><div class="p-meta">Patent No. 581720 · Inventor: <strong>Rohit Kumar Das</strong> · App. No. 202341039070, filed 07/06/2023</div></div></li>
+          <li><div><div class="p-title">Multi-Purpose Switch Adaptable for a Specific SDN Based IoT Architecture <span class="badge granted">Granted 28/11/2024</span></div><div class="p-meta">Patent No. 555363 · Inventors: G. Saha, <strong>R. K. Das</strong>, N. Ahmed, A. K. Maji · App. No. 201931049931, filed 04/12/2019</div></div></li>
+          <li><div><div class="p-title">An improved SDN based IoT system <span class="badge granted">Granted 06/03/2024</span></div><div class="p-meta">Patent No. 520906 · Inventors: G. Saha, <strong>R. K. Das</strong>, N. Ahmed, A. K. Maji · App. No. 202131017791, filed 16/04/2021</div></div></li>
+          <li><div><div class="p-title">Brain-Computer Interface (BCI) System for Controlling Wheelchair Movement for Physically Challenged Individuals <span class="badge filed">Filed 01/07/2025</span></div><div class="p-meta">Inventors: <strong>R. K. Das</strong>, P. Patel, M. Bordoloi, P. K. Sahoo, T. Lakshminarayana, K. S. Madhu · App. No. 202541062800</div></div></li>
+          <li><div><div class="p-title">System and Method for Monitoring Structural Health of Infrastructures and Transmitting Emergency Alerts <span class="badge filed">Filed 10/04/2025</span></div><div class="p-meta">Inventors: <strong>R. K. Das</strong>, L. Kotha, C. Gudditi · App. No. 202541035142</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section class="block" id="service">
+    <div class="wrap">
+      <div class="section-head"><h2>Professional Service</h2></div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h4>Journal Reviewer</h4>
+          <ul>
+            <li>IEEE Internet of Things Journal</li>
+            <li>IEEE Trans. on Vehicular Technology</li>
+            <li>IEEE Trans. on Mobile Computing</li>
+            <li>IEEE Trans. on Wireless Communications</li>
+            <li>IEEE Sensors Journal</li>
+            <li>Wiley Trans. on Emerging Telecom. Technologies</li>
+            <li>Springer Wireless Personal Communications</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Technical Program Committee</h4>
+          <ul>
+            <li>ICDSNE 2023, NIT Agartala</li>
+            <li>I3CS 2022, NEHU Shillong</li>
+            <li>SHI 2022, Oxford, UK</li>
+            <li>ICACCP 2021, SMIT Sikkim</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h4>Editorial Board</h4>
+          <ul>
+            <li>PriMera Scientific Engineering (PSEN)</li>
+            <li>Intl. Journal of Sensors and Sensor Networks</li>
+          </ul>
+          <h4 style="margin-top:26px;">Professional Membership</h4>
+          <ul>
+            <li>IEEE Senior Member</li>
+            <li>ACM</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.1rem;margin-top:56px;margin-bottom:8px;">Workshops Organized</h3>
+      <ul class="talks">
+        <li><span class="t-date">29 Jul 2026</span>One-Day National Ph.D. Colloquium — <b>IIITDM Kurnool</b> <span class="badge">Event Coordinator</span></li>
+        <li><span class="t-date">27–31 Aug 2024</span>Five-Day Faculty Workshop on "Outcome-based Education and National Education Policy" — VIT-AP University</li>
+        <li><span class="t-date">1–5 Mar 2022</span>Five-Day Faculty Workshop on "Research Proposal Writing &amp; Funding Opportunities" — VIT-AP University</li>
+        <li><span class="t-date">9 May 2022</span>National Workshop on "CUDA Programming with Python," sponsored by NVIDIA DLI — VIT-AP University</li>
+      </ul>
+
+      <h3 style="font-size:1.1rem;margin-top:44px;margin-bottom:8px;">Invited Talks &amp; Resource Person</h3>
+      <ul class="talks">
+        <li><span class="t-date">8 May 2026</span>"AI-Driven Business Intelligence &amp; Decision Support" — JAIN (Deemed-to-be University), Bangalore, FDP on AI for Business Analytics</li>
+        <li><span class="t-date">8 Sep 2023</span>"Transforming Real-Time Edge Applications with EdgeAI" — Mizoram University Short-Term Course on ICT</li>
+        <li><span class="t-date">28 Feb 2023</span>"IoT-enabled Smart Sustainable Cities" — IPSG College of Arts &amp; Science, Coimbatore</li>
+        <li><span class="t-date">19 Jul 2022</span>"Drawbacks of IoT and its improvement" — ICFAI University, Agartala</li>
+        <li><span class="t-date">Oct 2020</span>Hands-on Latex Workshop — SMIT, Sikkim</li>
+        <li><span class="t-date">Oct 2020</span>ATAL Academy Programme, "Improved IoT platforms in Simulation" — NEHU, Shillong</li>
+        <li><span class="t-date">Sep–Oct 2019</span>ATAL Academy Programme, "IoT Applications: Software based simulation" — Mizoram University</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block on-white" id="contact">
+    <div class="wrap">
+      <div class="contact-block">
+        <div>
+          <h2>Let's talk research.</h2>
+          <p class="sub">Open to collaboration, PhD/Masters supervision inquiries, reviewing, and speaking invitations in SDN, IoT, and Edge AI.</p>
+        </div>
+        <div>
+          <div class="contact-line"><span class="k">NAME</span><span>Dr. Rohit Kumar Das</span></div>
+          <div class="contact-line"><span class="k">EMAIL</span><a href="mailto:rohitdas.it.13@gmail.com">rohitdas.it.13@gmail.com</a></div>
+          <div class="contact-line"><span class="k">ADDRESS</span><span>Dept. of Computer Science &amp; Engineering,<br>IIITDM Kurnool, Andhra Pradesh 518008</span></div>
+          <div class="contact-line"><span class="k">PROFILES</span><span><a href="https://scholar.google.com/citations?user=pf8CBaIAAAAJ" target="_blank" rel="noopener">Scholar</a> · <a href="https://orcid.org/0000-0001-5431-6236" target="_blank" rel="noopener">ORCID</a> · <a href="https://www.researchgate.net/profile/Rohit-Das-3" target="_blank" rel="noopener">ResearchGate</a> · <a href="https://www.linkedin.com/in/rohit-kumar-das-84647aa8/" target="_blank" rel="noopener">LinkedIn</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>This page is maintained by Dr. Rohit Kumar Das.</p>
+  <p>The information provided should not be used for any activity without the knowledge of the author.</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const expanded = navLinks.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', expanded);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Publication tabs
+  document.querySelectorAll('.pub-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.pub-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Network topology canvas — signature hero element (SDN motif)
+  const canvas = document.getElementById('topo');
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let nodes = [];
+
+  function resize(){
+    const hero = canvas.parentElement;
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+    const count = Math.max(18, Math.floor(canvas.width / 90));
+    nodes = Array.from({length: count}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.18,
+      vy: (Math.random() - 0.5) * 0.18,
+      r: Math.random() * 1.6 + 1.2
+    }));
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    for(let i=0;i<nodes.length;i++){
+      const n = nodes[i];
+      if(!reduceMotion){
+        n.x += n.vx; n.y += n.vy;
+        if(n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if(n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      }
+      for(let j=i+1;j<nodes.length;j++){
+        const m = nodes[j];
+        const d = Math.hypot(n.x-m.x, n.y-m.y);
+        if(d < 170){
+          ctx.strokeStyle = `rgba(31,138,140,${(1 - d/170) * 0.35})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(m.x, m.y);
+          ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(20,101,103,0.55)';
+      ctx.fill();
+    }
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+
+</body>
 </html>
