@@ -46,12 +46,12 @@
 
   /* ---------- Skip link / focus ---------- */
   a:focus-visible, button:focus-visible{outline:2px solid var(--signal); outline-offset:3px;}
-  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-:100;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100;}
   .skip-link:focus{left:12px;top:12px;}
 
   /* ---------- Nav ---------- */
   header.nav{
-    position:sticky;top:0;z-:50;
+    position:sticky;top:0;z-index:50;
     background:rgba(236,239,233,0.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
@@ -89,7 +89,7 @@
     background:linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
   }
   #topo{position:absolute;inset:0;width:100%;height:100%;opacity:.55;}
-  .hero-inner{position:relative;z-:2;}
+  .hero-inner{position:relative;z-index:2;}
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
     color:var(--signal-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px;
@@ -133,12 +133,7 @@
     font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;flex-shrink:0;
     box-shadow:0 0 0 6px var(--white), 0 0 0 7px var(--line);
   }
-  .profile-photo{width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    box-shadow: 0 0 0 6px var(--white), 0 0 0 7px var(--line);}
+  .profile-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 6px var(--white), 0 0 0 7px var(--line);}
   .about-top{display:flex;gap:26px;align-items:center;margin-bottom:26px;flex-wrap:wrap;}
   .about-name h3{font-size:1.4rem;}
   .about-name p{margin:4px 0 0;color:var(--ink-soft);font-size:0.95rem;}
@@ -273,7 +268,7 @@
       <a href="#updates">Updates</a>
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
-      <a href="#guidance">Guidance</a>
+      <a href="#guidance">NEXUS Lab</a>
       <a href="#publications">Publications</a>
       <a href="#service">Service</a>
       <a href="#contact">Contact</a>
@@ -310,7 +305,7 @@
     <div class="wrap about">
       <div class="section-head"><h2>About</h2></div>
       <div class="about-top">
-        <img class="profile-photo" src="rohit.jpg" alt="Dr. Rohit Kumar Das">
+        <img class="profile-photo" src="index_final_profile.jpg" alt="Dr. Rohit Kumar Das">
         <div class="about-name">
           <h3>Dr. Rohit Kumar Das</h3>
           <p>Department of Computer Science and Engineering, IIITDM Kurnool</p>
@@ -329,6 +324,8 @@
     <div class="wrap">
       <div class="section-head"><h2>Recent Updates</h2></div>
       <ul class="updates">
+        <li><span class="u-date">25 Aug 2026</span><span class="u-node"><span></span></span><span class="u-text">Delivered an invited lecture as <b>Resource Person</b> on <b>"From Connected to Intelligent Transforming IoT Network with SDN, Edge Computing and Edge AI"</b> during the online Short Term Course on <b>Artificial Intelligence &amp; Machine Learning: Concepts &amp; Applications</b> at <b>Mizoram University</b>.</span></li>
+        
         <li><span class="u-date">29 Jul 2026</span><span class="u-node"><span></span></span><span class="u-text">Coordinated and conducted a <b>One-Day National Ph.D. Colloquium</b> at <b>IIITDM Kurnool</b>.</span></li>
         <li><span class="u-date">8 May 2026</span><span class="u-node"><span></span></span><span class="u-text">Delivered an invited talk on <b>AI-Driven Business Intelligence &amp; Decision Support</b> at JAIN (Deemed-to-be University), Bangalore — FDP on "AI for Business Analytics."</span></li>
         <li><span class="u-date">2026</span><span class="u-node"><span></span></span><span class="u-text">Co-authored article <b>"Taxonomy of threats, security mechanisms, and regulatory frameworks for cargo delivery drones"</b> accepted in Journal of Transportation Security.</span></li>
@@ -405,19 +402,22 @@
   <!-- STUDENT GUIDANCE -->
   <section class="block" id="guidance">
     <div class="wrap">
-      <div class="section-head"><h2>Ph.D. &amp; M.Tech Student Guidance</h2></div>
+      <div class="section-head"><h2>NEXUS Lab</h2></div>
+      <p style="max-width:760px;font-size:1.02rem;margin-bottom:10px;">
+        <strong>NEXUS Lab</strong> — <em>Networked Edge Intelligence &amp; IoT Systems Laboratory</em>
+      </p>
       <p style="max-width:760px;font-size:1.02rem;margin-bottom:30px;">
-        All scholars under my guidance are working in the broad areas of <strong>Software-Defined Networking (SDN)</strong> and <strong>Internet of Things (IoT)</strong>, with a primary focus on <strong>Edge Computing</strong> and <strong>Edge AI</strong>.
+        The scholars under my guidance work in the broad areas of <strong>Software-Defined Networking (SDN)</strong> and <strong>Internet of Things (IoT)</strong>, with a primary focus on <strong>Edge Computing</strong> and <strong>Edge AI</strong>.
       </p>
       <div class="two-col">
         <div class="service-card">
-          <h4>Ph.D. Student</h4>
+          <h4>Ph.D. Scholar</h4>
           <ul>
             <li><strong>Sai Kuntala Sriya</strong> <span class="badge">Admission 2026</span></li>
           </ul>
         </div>
         <div class="service-card">
-          <h4>M.Tech Students</h4>
+          <h4>M.Tech Scholars</h4>
           <ul>
             <li><strong>Avinash Singh</strong> <span class="badge">Admission 2025</span></li>
             <li><strong>Pavan Chandra Punem</strong> <span class="badge">Admission 2025</span></li>
@@ -535,6 +535,8 @@
 
       <h3 style="font-size:1.1rem;margin-top:56px;margin-bottom:8px;">Workshops Organized</h3>
       <ul class="talks">
+        <li><span class="t-date">25 Aug 2026</span>Invited Lecture: "From Connected to Intelligent Transforming IoT Network with SDN, Edge Computing and Edge AI" — Short Term Course on "Artificial Intelligence &amp; Machine Learning: Concepts &amp; Applications," Mizoram University <span class="badge">Resource Person</span></li>
+        
         <li><span class="t-date">29 Jul 2026</span>One-Day National Ph.D. Colloquium — <b>IIITDM Kurnool</b> <span class="badge">Event Coordinator</span></li>
         <li><span class="t-date">27–31 Aug 2024</span>Five-Day Faculty Workshop on "Outcome-based Education and National Education Policy" — VIT-AP University</li>
         <li><span class="t-date">1–5 Mar 2022</span>Five-Day Faculty Workshop on "Research Proposal Writing &amp; Funding Opportunities" — VIT-AP University</li>
